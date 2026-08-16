@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBloom - Home</title>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      min-height: 100vh;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Full Background Container */
+    .hero-container {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+                  url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- Top Navbar --- */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0d2830;
+      padding: 10px 30px;
+      z-index: 10;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background-color: #ffffff;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px;
+    }
+
+    .brand-title {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.8;
+    }
+
+    /* Search Bar Container */
+    .search-container {
+      display: flex;
+      align-items: center;
+      background-color: #ffffff;
+      padding: 4px 6px 4px 18px;
+      border-radius: 30px;
+      width: 420px;
+    }
+
+    .search-input {
+      border: none;
+      outline: none;
+      background: transparent;
+      width: 100%;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .search-input::placeholder {
+      color: #7b8e95;
+    }
+
+    .search-icon {
+      color: #8352b5;
+      font-size: 1rem;
+      margin: 0 10px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn {
+      border: none;
+      background-color: #117878;
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 18px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0e6363;
+    }
+
+    /* --- Main Body Area --- */
+    .main-content {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      padding-top: 40px;
+    }
+
+    /* Vertical Social Bar (Left) */
+    .social-bar {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(13, 40, 48, 0.7);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      padding: 20px 14px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      z-index: 5;
+    }
+
+    .social-bar a {
+      color: #ffffff;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+
+    .social-bar a:hover {
+      color: #38b6ff;
+    }
+
+    /* Default Hero Text Section */
+    .hero-text-box {
+      margin-left: 80px;
+      max-width: 520px;
+      color: #ffffff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 28px;
+      color: #f0f0f0;
+    }
+
+    .btn-book {
+      background-color: #0b5e52;
+      color: #ffffff;
+      border: none;
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* --- Search Results Section --- */
+    .results-wrapper {
+      margin-left: 80px;
+      width: calc(100% - 120px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .results-heading {
+      color: #e67e22; /* Orange text matching design */
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    .results-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 8px;
+      width: 300px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 12px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #0b1d3a; /* Dark blue title */
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: 0.82rem;
+      color: #444444;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-container">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <a href="travel_recommendation.html" class="nav-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            <path d="M17.8 8.2l-3.2 2.1 1.2 3.8-3.8-2.5-3.8 2.5 1.2-3.8-3.2-2.1h3.9l1.9-3.8 1.9 3.8z" fill="#000"></path>
+          </svg>
+        </div>
+        <span class="brand-title">TravelBloom</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="travel_recommendation.html">Home</a></li>
+        <li><a href="travel_recommendation_about_us.html">About Us</a></li>
+        <li><a href="travel_recommendation_contact_us.html">Contact Us</a></li>
+      </ul>
+
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Enter a destination or keyword">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <div class="button-group">
+          <button type="button" id="btn-search" class="btn">Search</button>
+          <button type="button" id="btn-clear" class="btn">Clear</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Left Social Bar -->
+      <aside class="social-bar">
+        <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </aside>
+
+      <!-- Default Hero Text (hidden when search results appear) -->
+      <section id="hero-text" class="hero-text-box">
+        <h1 class="hero-title">EXPLORE DREAM<br>DESTINATION</h1>
+        <p class="hero-description">
+          The Travel Recommendation App helps users explore popular travel destinations 
+          through an interactive and user-friendly interface. It allows users to search for 
+          beaches, temples, countries, or specific country names to view related cities along 
+          with images and descriptions.
+        </p>
+        <button class="btn-book" type="button">Book Now</button>
+      </section>
+
+      <!-- Search Results Area (populated by JS) -->
+      <section id="results-area" class="results-wrapper" style="display: none;"></section>
+    </main>
+  </div>
+
+  <script src="travel_recommendation.js"></script>
+</body>
+</html>
